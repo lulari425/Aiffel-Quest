@@ -12,39 +12,34 @@
 - 해당 코드 블럭에 doc string/annotation/markdown이 달려 있는지 확인
 - 해당 코드가 무슨 기능을 하는지, 왜 그렇게 짜여진건지, 작동 메커니즘이 뭔지 기술.
 - 주석을 보고 코드 이해가 잘 되었는지 확인
-  <pre><code>  
-    def counter(fn):
-    count = 0 # 함수 호출 횟수를 저장하는 변수
-    def deco_hello():
-        nonlocal count #내부함수에서 외부 함수 count 변수 호출
-        count += 1
-        fn()               # 기존 함수 호출
-        #print(fn.__name__) # 기존 함수 명 맞는지 확인
-        print(fn.__name__, "실행횟수 :",count )    # 실행횟수 카운트
-  </code></pre>
-  이 부분에서 특히 주석이 잘 달려있어 어떤 부분을 시행하기 위한 코드였는지 파악할 수 있어 좋았습니다.
+<pre><code>  def counter(fn):
+count = 0 # 함수 호출 횟수를 저장하는 변수
+def deco_hello():
+    nonlocal count #내부함수에서 외부 함수 count 변수 호출
+    count += 1
+    fn()               # 기존 함수 호출
+    #print(fn.__name__) # 기존 함수 명 맞는지 확인
+    print(fn.__name__, "실행횟수 :",count )    # 실행횟수 카운트</code></pre>
+이 부분에서 특히 주석이 잘 달려있어 어떤 부분을 시행하기 위한 코드였는지 파악할 수 있어 좋았습니다.
         
 [o]  **3. 에러가 난 부분을 디버깅하여 “문제를 해결한 기록”을 남겼나요? 또는 “새로운 시도 및 추가 실험”을 해봤나요?**
 - 문제 원인 및 해결 과정을 잘 기록하였는지 확인
   주석을 사용하여 실제로 어떠한 에러가 났었고 그래서 어떻게 해결했다! 하는 부분이 잘 기술되어 있어 좋았습니다.
 - 문제에서 요구하는 조건에 더해 추가적으로 수행한 나만의 시도, 실험이 기록되어 있는지 확인
-  <pre><code>  
-    # TypeError: 'int' object is not callable  
-    # chatGpt 참조 : () 포함된 코드에서는 get_min()와 get_max() 함수를 호출하여 반환된 값을 반환하게 됩니다. 이는 실제로 최솟값과 최댓값을 반환하게 됩니다.  
-    #                () 제거된  코드는 get_min과 get_max 함수 객체를 반환합니다. 이를 통해 반환된 함수를 나중에 호출하여 최솟값과 최댓값을 얻을 수 있습니다.</code></pre>
-    이 부분이 특히 좋았습니다. 함수객체를 return 할 때 왜 함수의 형식으로 반환하지 않고 ()없이 객체 자체로 반환해야 하는지 저도 덕분에 배울 수 있었습니다.
-  <pre><code>  
-    # 위의 return 오류를 해결하기 위하여 하단의 코드를 나눠서 수정하기도함  
-    # find_min = find_min_max(numbers)  
-    # find_max = find_min_max(numbers)  
-    # TypeError: 'tuple' object is not callable 오류 발생</code></pre>
+<pre><code>  # TypeError: 'int' object is not callable  
+# chatGpt 참조 : () 포함된 코드에서는 get_min()와 get_max() 함수를 호출하여 반환된 값을 반환하게 됩니다. 이는 실제로 최솟값과 최댓값을 반환하게 됩니다.  
+#                () 제거된  코드는 get_min과 get_max 함수 객체를 반환합니다. 이를 통해 반환된 함수를 나중에 호출하여 최솟값과 최댓값을 얻을 수 있습니다.</code></pre>
+이 부분이 특히 좋았습니다. 함수객체를 return 할 때 왜 함수의 형식으로 반환하지 않고 ()없이 객체 자체로 반환해야 하는지 저도 덕분에 배울 수 있었습니다.
+<pre><code>  # 위의 return 오류를 해결하기 위하여 하단의 코드를 나눠서 수정하기도함  
+# find_min = find_min_max(numbers)  
+# find_max = find_min_max(numbers)  
+# TypeError: 'tuple' object is not callable 오류 발생</code></pre>
 이 부분도 저희 팀이 했던 실수와 동일한 부분이라 재미있었습니다.
-  <pre><code>  
-    print("say_hello 실행횟수 :",i+1 )
-    -->   
-    # i를 참조하여 작성하였고, 원하는 결과값이 나오지만  
-    # chatGpt  피드백 : i 변수가 정의되지 않아 NameError가 발생할 수 있습니다.  
-    # 함수 호출 횟수를 유지하기 위해 클로저를 사용해야 합니다. 이를 위해 nonlocal 키워드를 사용하여 외부 함수의 변수를 참조하는 방법을 사용합니다.</code></pre>
+<pre><code>  print("say_hello 실행횟수 :",i+1 )
+-->   
+# i를 참조하여 작성하였고, 원하는 결과값이 나오지만  
+# chatGpt  피드백 : i 변수가 정의되지 않아 NameError가 발생할 수 있습니다.  
+# 함수 호출 횟수를 유지하기 위해 클로저를 사용해야 합니다. 이를 위해 nonlocal 키워드를 사용하여 외부 함수의 변수를 참조하는 방법을 사용합니다.</code></pre>
 이부분도 i 변수가 이미 주어지기에 그것을 활용해서 짤 수는 있지만 counter을 쓰면 훨씬 간편하고 에러가 생기지 않을 수 있다는 점을 배웠기에 좋은 시도였다고 생각합니다. 덕분에 counter을 어떤 때 사용하면 좋을지에 대해 한번 더 생각해 볼 수 있었습니다.
         
 [o]  **4. 회고를 잘 작성했나요?**

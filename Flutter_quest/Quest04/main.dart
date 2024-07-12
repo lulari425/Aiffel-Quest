@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
   }
 }
 /* 프로토타입 피그마 url : https://www.figma.com/proto/IQNWuCdQo0LBotrkc2X7T0/Untitled?t=rBnnGOTM4MnWdrn3-1 */
+/* 프로토타입 동영상 url :   */
 /* 회고 이한나
       아쉬운점  : 
                 프로토타입 구현하느라 시간을 많이 보내어 퀘스트시간이 되어 소스를 구현하려다 보니 시간이 부족한 부분이 많아

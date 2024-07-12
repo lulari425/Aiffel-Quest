@@ -21,8 +21,7 @@ class MyApp extends StatelessWidget {
   }
 }
 /* 프로토타입 피그마 url : https://www.figma.com/proto/IQNWuCdQo0LBotrkc2X7T0/Untitled?t=rBnnGOTM4MnWdrn3-1 */
-/* 프로토타입 동영상 url :   */
-<img width="80%" src="https://github.com/lulari425/Aiffel_Quest/issues/10#issue-2404448092"/>
+
  
 /* 회고 이한나
       아쉬운점  : 

@@ -66,3 +66,4 @@ if __name__ == "__main__":
 # 사용하여 여러 터널을 관리함.
 # 라이브러리 호환성 문제: PIL.Image의 ANTIALIAS 속성 문제를 해결하기 위해 대체 속성인 LANCZOS를 사용함.
 # 완성된 앱은 못 만들었지만, 어제 배운 내용을 복기할 수 있는 기회였습니다.
+# jellyfish 예측 값 받은 url: https://6bfc-121-134-108-23.ngrok-free.app/sample

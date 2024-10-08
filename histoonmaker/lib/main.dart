@@ -6,7 +6,7 @@ import 'mypage.dart';
 
 
 
-void main() async { 
+void main() { 
   runApp( MyApp());
 }
 
